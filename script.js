@@ -8,25 +8,11 @@ const imageList = [
   { src: "https://via.placeholder.com/800", alt: "Image 6", name: "Image Six", link: "https://example.com/image6" }
 ];
 
-// Hàm để lấy ngẫu nhiên một phần tử từ một mảng
-function getRandomElement(array) {
-  return array[Math.floor(Math.random() * array.length)];
-}
-
-// Chọn ngẫu nhiên 3 ảnh từ danh sách
-const selectedImages = [];
-while (selectedImages.length < 3) {
-  const randomImage = getRandomElement(imageList);
-  if (!selectedImages.some(image => image.src === randomImage.src)) {
-    selectedImages.push(randomImage);
-  }
-}
-
-// Hiển thị các ảnh đã chọn trong grid
+// Hiển thị tất cả các ảnh từ danh sách trong grid
 const imageGrid = document.getElementById("imageGrid");
 const fragment = document.createDocumentFragment(); // Tạo một đoạn mã ngắn để chứa tất cả các ảnh trước khi thêm vào grid
 
-selectedImages.forEach(image => {
+imageList.forEach(image => {
   const imageContainer = document.createElement("div");
   imageContainer.classList.add("image-container");
   const anchor = document.createElement("a");
