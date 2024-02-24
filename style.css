@@ -4,7 +4,7 @@
   gap: 10px;
   border: 1px solid #000;
   padding: 20px;
-  max-width: 800px;
+  max-width: auto;
   height: 1000px; /* Giảm chiều cao đi một nửa */
   overflow: auto; /* Thêm thanh cuộn nếu nội dung vượt quá kích thước */
   margin: 0 auto; /* Căn giữa */
