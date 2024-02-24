@@ -5,7 +5,7 @@
   border: 1px solid #000;
   padding: 20px;
   max-width: auto;
-  height: 1000px; /* Giảm chiều cao đi một nửa */
+  height: auto; /* Giảm chiều cao đi một nửa */
   overflow: auto; /* Thêm thanh cuộn nếu nội dung vượt quá kích thước */
   margin: 0 auto; /* Căn giữa */
 }
