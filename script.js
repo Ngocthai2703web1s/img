@@ -1,14 +1,14 @@
 // Dữ liệu ảnh
 const images = [
-    { src: 'image1.jpg', name: 'Image 1', link: 'https://example.com/image1' },
-    { src: 'image2.jpg', name: 'Image 2', link: 'https://example.com/image2' },
-    { src: 'image3.jpg', name: 'Image 3', link: 'https://example.com/image3' },
-    { src: 'image4.jpg', name: 'Image 4', link: 'https://example.com/image4' },
-    { src: 'image5.jpg', name: 'Image 5', link: 'https://example.com/image5' },
-    { src: 'image6.jpg', name: 'Image 6', link: 'https://example.com/image6' },
-    { src: 'image7.jpg', name: 'Image 7', link: 'https://example.com/image7' },
-    { src: 'image8.jpg', name: 'Image 8', link: 'https://example.com/image8' },
-    { src: 'image9.jpg', name: 'Image 9', link: 'https://example.com/image9' }
+    { src: 'image1.jpg', name: 'Image 1', link: 'https://via.placeholder.com/300' },
+    { src: 'image2.jpg', name: 'Image 2', link: 'https://via.placeholder.com/400' },
+    { src: 'image3.jpg', name: 'Image 3', link: 'https://via.placeholder.com/500' },
+    { src: 'image4.jpg', name: 'Image 4', link: 'https://via.placeholder.com/600' },
+    { src: 'image5.jpg', name: 'Image 5', link: 'https://via.placeholder.com/700' },
+    { src: 'image6.jpg', name: 'Image 6', link: 'https://via.placeholder.com/800' },
+    { src: 'image7.jpg', name: 'Image 7', link: 'https://via.placeholder.com/900' },
+    { src: 'image8.jpg', name: 'Image 8', link: 'https://via.placeholder.com/300' },
+    { src: 'image9.jpg', name: 'Image 9', link: 'https://via.placeholder.com/300' }
 ];
 
 // Lựa chọn ngẫu nhiên 3 ảnh từ list
