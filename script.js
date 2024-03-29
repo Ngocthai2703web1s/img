@@ -1,4 +1,4 @@
-// Dữ liệu ảnh
+// Danh sách các link ảnh và tên ảnh
 const imageList = [
   { src: "https://via.placeholder.com/300", alt: "Image 1", name: "Image One", link: "https://example.com/image1" },
   { src: "https://via.placeholder.com/400", alt: "Image 2", name: "Image Two", link: "https://example.com/image2" },
@@ -8,43 +8,39 @@ const imageList = [
   { src: "https://via.placeholder.com/800", alt: "Image 6", name: "Image Six", link: "https://example.com/image6" }
 ];
 
-// Lựa chọn ngẫu nhiên 3 ảnh từ list
-function getRandomImages(images, num) {
-    const randomImages = [];
-    const cloneImages = [...images];
-    
-    for (let i = 0; i < num; i++) {
-        const randomIndex = Math.floor(Math.random() * cloneImages.length);
-        randomImages.push(cloneImages[randomIndex]);
-        cloneImages.splice(randomIndex, 1);
-    }
-
-    return randomImages;
+// Hàm để lấy ngẫu nhiên một phần tử từ một mảng
+function getRandomElement(array) {
+  return array[Math.floor(Math.random() * array.length)];
 }
 
-// Cập nhật src và thông tin ảnh trong khung
-function updateImages() {
-    const selectedImages = getRandomImages(images, 3);
-    const imageGrid = document.getElementById('imageGrid');
-    
-    imageGrid.innerHTML = ''; // Xóa các ảnh cũ
-    
-    selectedImages.forEach(image => {
-        const imageItem = document.createElement('div');
-        imageItem.className = 'image-item';
-        
-        const imgElement = document.createElement('img');
-        imgElement.src = image.src;
-        imgElement.alt = image.name;
-        imgElement.setAttribute('data-name', image.name);
-        imgElement.addEventListener('click', function() {
-            window.open(image.link, '_blank');
-        });
-        
-        imageItem.appendChild(imgElement);
-        imageGrid.appendChild(imageItem);
-    });
+// Chọn ngẫu nhiên 3 ảnh từ danh sách
+const selectedImages = [];
+while (selectedImages.length < 3) {
+  const randomImage = getRandomElement(imageList);
+  if (!selectedImages.some(image => image.src === randomImage.src)) {
+    selectedImages.push(randomImage);
+  }
 }
 
-// Khởi tạo
-updateImages();
+// Hiển thị các ảnh đã chọn trong grid
+const imageGrid = document.getElementById("imageGrid");
+const fragment = document.createDocumentFragment(); // Tạo một đoạn mã ngắn để chứa tất cả các ảnh trước khi thêm vào grid
+
+selectedImages.forEach(image => {
+  const imageContainer = document.createElement("div");
+  imageContainer.classList.add("image-container");
+  const anchor = document.createElement("a");
+  anchor.href = image.link;
+  anchor.target = "_blank"; // Mở liên kết trong tab mới
+  const img = document.createElement("img");
+  img.src = image.src;
+  img.alt = image.alt;
+  anchor.appendChild(img);
+  const name = document.createElement("p");
+  name.textContent = image.name;
+  anchor.appendChild(name);
+  imageContainer.appendChild(anchor);
+  fragment.appendChild(imageContainer); // Thêm các ảnh vào đoạn mã ngắn
+});
+
+imageGrid.appendChild(fragment); // Thêm tất cả các ảnh vào grid một lần duy nhất
